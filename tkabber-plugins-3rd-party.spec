@@ -23,6 +23,8 @@ Wtyczki dla Tkabbera - klienta Jabbera opartego o Tk.
 %prep
 %setup -q -n tkabber-3rd-party-plugins
 
+mv plugins/green/tkabber-swsusp.tcl plugins/green/swsusp-tkabber.tcl
+
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/tkabber/plugins
