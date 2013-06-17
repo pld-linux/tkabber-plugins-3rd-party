@@ -1,4 +1,4 @@
-%define	snap 20080612
+%define	snap 20130617
 Summary:	Tk Jabber client 3rd party plugins
 Summary(pl.UTF-8):	Wtyczki do klienta Jabbera opartego o Tk
 Name:		tkabber-plugins-3rd-party
@@ -8,7 +8,7 @@ License:	GPL
 Group:		Applications/Communications
 # svn export http://svn.xmpp.ru/repos/tkabber-3rd-party/trunk tkabber-3rd-party-plugins
 Source0:	tkabber-3rd-party-plugins-%{snap}.tar.bz2
-# Source0-md5:	b6e0e2c409df9690dbac497f6d230f52
+# Source0-md5:	1f61e8b13a5294a2fbfc0f6eda22210f
 URL:		http://tkabber.jabber.ru/
 Requires:	tkabber >= %{version}-%{release}
 BuildArch:	noarch
@@ -25,6 +25,8 @@ Wtyczki dla Tkabbera - klienta Jabbera opartego o Tk.
 
 # now in tkabber-plugins.spec
 rm -rf plugins/unixkeys
+
+sed -i -e 's|#!/usr/bin/tclsh.*|%{_bindir}/tclsh|g' plugins/bldjid2/log2base.tcl
 
 %install
 rm -rf $RPM_BUILD_ROOT
